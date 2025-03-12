@@ -5,7 +5,7 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import Link from 'next/link'
-import { NavType } from "@/lib/definitions";
+import { NavType } from "@lib/definitions";
 
 export default function Nav({ data }: { data: NavType[] }) {
   return (

@@ -9,8 +9,8 @@ export const NAV: NavType[] = [
     },
     {
         id: 2,
-        title: 'Product',
-        url: '/product',
+        title: 'Products',
+        url: '/products',
     },
     {
         id: 3,
@@ -23,3 +23,9 @@ export const NAV: NavType[] = [
         url: '/auth/login',
     }
 ];
+
+export const API: { [key: string]: string } = {
+  products: "/api/products",
+  login: "/api/auth/login",
+  register: "/api/auth/register",
+};
