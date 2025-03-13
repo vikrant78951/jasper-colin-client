@@ -7,9 +7,10 @@ export type NavType ={
 
 
 export type ProductType = {
-  _id: string;
+  _id?: string;
   name: string;
   description: string;
-  price: number;
-  createdAt: string;
+  category : string;
+  price: number | string;
+  createdAt?: string;
 };
