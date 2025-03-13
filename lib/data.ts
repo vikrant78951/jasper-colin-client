@@ -28,4 +28,6 @@ export const API: { [key: string]: string } = {
   products: "/api/products",
   login: "/api/auth/login",
   register: "/api/auth/register",
+  logout: "/api/auth/logout",
+  refresh: "/api/auth/refresh",
 };
