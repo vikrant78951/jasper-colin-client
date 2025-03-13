@@ -1,13 +1,13 @@
+
 import Wrapper from "@components/ui/wrapper";
 import ProductForm from "@components/forms/product-form";
 import { getProductById } from "@/lib/actions/productAction";
 import ErrorContainer from "@components/ui/error";
 
-export default async function Page(props: { params: { id: string } }) {
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+   try {
 
-  try {
-    const { id } = await Promise.resolve(props.params); 
-
+    const {id} = await Promise.resolve(params)
     if (!id) {
       throw new Error("Missing product ID");
     }
@@ -18,7 +18,7 @@ export default async function Page(props: { params: { id: string } }) {
     }
 
     return (
-      <Wrapper className="flex justify-center items-center py-4 md:py-10 h-full">
+      <Wrapper className="flex justify-center items-center py-4 sm:py-10 h-full">
         <ProductForm action="edit" product={data.data} />
       </Wrapper>
     );

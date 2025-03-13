@@ -35,7 +35,6 @@ export default function ProductCard({
   const deleteProductHandler = async (id: string) => {
     try {
       const { data } = await deleteProduct(id);
-      console.log("delete response", data);
       if (!data.success) {
         throw new Error("");
       }

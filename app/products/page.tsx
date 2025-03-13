@@ -16,7 +16,7 @@ export default async function Page() {
     }
 
     return (
-      <div className="py-4">
+      <div className="py-4 w-full">
         <Wrapper>
           <div className="flex justify-between  items-center mb-2 ">
             <h1 className={"text-xl text-semibold "}>Products</h1>

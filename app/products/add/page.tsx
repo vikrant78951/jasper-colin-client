@@ -8,7 +8,7 @@ export default function Page() {
 
 
   return (
-    <Wrapper className="flex justify-center items-center py-4 md:py-10 h-full">
+    <Wrapper className="flex justify-center items-center py-4 sm:py-10 h-full">
       <ProductForm action="add" />
     </Wrapper>
   );

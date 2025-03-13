@@ -65,7 +65,6 @@ export default function ProductForm({
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
     try {
-      console.log("Submitted:", values);
       let response;
       if(action==='add' && !product){
        response =  await addProduct(values);
@@ -78,7 +77,6 @@ export default function ProductForm({
       }
 
       const { message } = response.data as { message: string };
-      console.log("response.data:", response.data);
       toast(message, { closeButton: true, type: "success" } as CustomToast);
       form.reset();
     } catch (error) {
