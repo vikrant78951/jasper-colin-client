@@ -114,7 +114,7 @@ export default function LoginForm() {
         </form>
 
         <p className="mt-4 text-sm">
-          Need an account ?{" "}
+          Need an account ? 
           <Link className="text-blue-600 hover:underlink" href="/auth/register">
             Register here.
           </Link>

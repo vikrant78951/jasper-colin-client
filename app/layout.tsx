@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
    return (
      <html lang="en">
-       <body className={`${geistSans.className}  antialiased w-screen`}>
+       <body className={`${geistSans.className}  antialiased`}>
            <Provider>
          <SessionProvider>
              <>

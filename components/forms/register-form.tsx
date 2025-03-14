@@ -171,7 +171,7 @@ export default function RegisterForm() {
           </Button>
         </form>
         <p className="mt-4 text-sm">
-         Already have an account?
+         Already have an account? 
           <Link className="text-blue-600 hover:underlink" href="/auth/register">
             Login here.
           </Link>

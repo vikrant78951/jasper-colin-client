@@ -12,11 +12,6 @@ export const NAV: NavType[] = [
         title: 'Products',
         url: '/products',
     },
-    {
-        id: 3,
-        title: 'Doc',
-        url: '/doc',
-    },
     
 ];
 

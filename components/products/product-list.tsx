@@ -25,7 +25,7 @@ export default function ProductList({
   return (
     <>
       {products.length > 0 && (
-        <div className="flex justify-between items-center mb-4 w-full max-w-xl">
+        <div className="flex justify-between items-center mb-4 w-full max-w-md">
           <Input
             type="search"
             placeholder="Search"
