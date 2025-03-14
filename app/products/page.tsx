@@ -7,7 +7,7 @@ import ProductList from "@/components/products/product-list";
 import AddProductButton from "@/components/products/add-product-button";
 import Spinner from "@components/ui/spinner";
 
-export async function Component() {
+async  function Component() {
   try {
     const { data } = await axiosInstance.get(API.products);
 

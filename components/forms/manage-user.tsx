@@ -36,7 +36,6 @@ export default function ManageUser() {
     
   }
 
-  console.log(user, isAuthenticated);
 
   return (
     <>
