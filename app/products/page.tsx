@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import { axiosInstance } from "@/lib/axiosInstance";
 import { API } from "@/lib/data";
 import Wrapper from "@/components/ui/wrapper";
@@ -7,9 +8,11 @@ import ProductList from "@/components/products/product-list";
 import AddProductButton from "@/components/products/add-product-button";
 import Spinner from "@components/ui/spinner";
 
-async  function Component() {
+async function Component() {
   try {
-    const { data } = await axiosInstance.get(API.products);
+    const { data } = await axiosInstance.get(API.products, {
+      headers: { "Cache-Control": "no-store" },
+    });
 
     if (!Array.isArray(data.data)) {
       throw new Error("Invalid API response: Expected an array");
@@ -21,7 +24,7 @@ async  function Component() {
           <div className="flex justify-between  items-center mb-2 ">
             <h1 className={"text-xl text-semibold "}>Products</h1>
 
-           <AddProductButton/>
+            <AddProductButton />
           </div>
           <ProductList initialData={data.data} />
         </Wrapper>
