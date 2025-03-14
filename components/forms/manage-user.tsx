@@ -47,28 +47,48 @@ export default function ManageUser() {
           </Link>
         </NavigationMenuItem>
       ) : (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant={'ghost'} className="flex items-center space-x focus:outline-none">
-              <div>
-                <span className="h-8 w-8 rounded flex items-center justify-center bg-gray-400 text-2xl font-medium ">
-                  {user.name[0]}
-                </span>
-              </div>
-              <div className="flex flex-col items-start ">
-                <h5 className="leading-none text-xl">{user.name}</h5>
-                <p className="text-foreground/80 leading-none text-sm">
-                  {user.email}
-                </p>
-              </div>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56">
-             <Button variant={'ghost'} onClick={logoutHandler} className="flex items-center space-x-2 focus:outline-none">
+        <>
+          <div className={"hidden sm:flex"}>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant={"ghost"}
+                  className="flex items-center space-x focus:outline-none"
+                >
+                  <div>
+                    <span className="h-8 w-8 rounded flex items-center justify-center bg-gray-400 text-2xl font-medium ">
+                      {user.name[0]}
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-start ">
+                    <h5 className="leading-none text-xl">{user.name}</h5>
+                    <p className="text-foreground/80 leading-none text-sm">
+                      {user.email}
+                    </p>
+                  </div>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                <Button
+                  variant={"ghost"}
+                  onClick={logoutHandler}
+                  className="flex items-center space-x-2 focus:outline-none"
+                >
+                  Logout
+                </Button>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+          <div className={"block sm:hidden"}>
+            <Button
+              variant={"outline"}
+              onClick={logoutHandler}
+              className="flex items-center space-x focus:outline-none font-medium"
+            >
               Logout
             </Button>
-          </DropdownMenuContent>
-        </DropdownMenu>
+          </div>
+        </>
       )}
     </>
   );

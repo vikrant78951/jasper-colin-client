@@ -11,7 +11,7 @@ import ManageUser from "../forms/manage-user";
 
 export default function Nav({ data }: { data: NavType[] }) {
   return (
-    <nav>
+    <nav className="mt-2 sm:mt-0">
       <NavigationMenu>
         <NavigationMenuList>
           {data?.map((item) => {
