@@ -20,6 +20,9 @@ import { useDispatch } from "react-redux";
 import { setUser } from "@redux/authSlice/authSlice";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { API } from "@lib/data";
+import { axiosPublic } from "@lib/axiosInstance";
+
 const loginSchema = z.object({
   email: z.string().email({ message: "Invalid email address." }),
   password: z
@@ -43,7 +46,7 @@ export default function LoginForm() {
   async function onSubmit(values: z.infer<typeof loginSchema>) {
     setLoading(true);
     try {
-      const response = await axios.post("/api/auth/login", values);
+      const response = await axiosPublic.post(API.login, values);
       const { accessToken, user } = response.data;
 
       localStorage.setItem("accessToken", accessToken);
