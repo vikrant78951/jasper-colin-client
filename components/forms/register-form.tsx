@@ -20,7 +20,8 @@ import { useDispatch } from "react-redux";
 import { setUser } from "@redux/authSlice/authSlice"; 
 import Link from 'next/link'
 import {API} from '@lib/data'
-import { axiosPublic } from "@/lib/axiosInstance";
+import { axiosInstance } from "@/lib/axiosInstance";
+import { useRouter } from "next/navigation";
 
 const formSchema = z
   .object({
@@ -42,6 +43,7 @@ const formSchema = z
 export default function RegisterForm() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -57,15 +59,14 @@ export default function RegisterForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
     try {
-      
-      const response = await axiosPublic.post(API.register, values, {
+      const response = await axiosInstance.post(API.register, values, {
         withCredentials: true,
       });
 
       const {  user } = response.data;
       dispatch(setUser(user));
-
       toast.success("Registration successful!");
+      router.push('/')
 
       form.reset();
     } catch (error) {

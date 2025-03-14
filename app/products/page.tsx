@@ -1,16 +1,14 @@
-import { axiosPublic } from "@/lib/axiosInstance";
+import { axiosInstance } from "@/lib/axiosInstance";
 import { API } from "@/lib/data";
 import Wrapper from "@/components/ui/wrapper";
 
-import { Button } from "@components/ui/button";
 import ErrorContainer from "@components/ui/error";
-import Link from "next/link";
 import ProductList from "@/components/products/product-list";
-
+import AddProductButton from "@/components/products/add-product-button";
 export default async function Page() {
   try {
-    const { data } = await axiosPublic.get(API.products);
-    const authentication: boolean = true;
+    const { data } = await axiosInstance.get(API.products);
+
     if (!Array.isArray(data.data)) {
       throw new Error("Invalid API response: Expected an array");
     }
@@ -21,11 +19,7 @@ export default async function Page() {
           <div className="flex justify-between  items-center mb-2 ">
             <h1 className={"text-xl text-semibold "}>Products</h1>
 
-            {authentication && (
-              <Button>
-                <Link href="/products/add">Add Product</Link>
-              </Button>
-            )}
+           <AddProductButton/>
           </div>
           <ProductList initialData={data.data} />
         </Wrapper>

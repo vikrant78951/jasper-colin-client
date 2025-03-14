@@ -21,7 +21,7 @@ import { setUser } from "@redux/authSlice/authSlice";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { API } from "@lib/data";
-import { axiosPublic } from "@lib/axiosInstance";
+import { axiosInstance } from "@lib/axiosInstance";
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Invalid email address." }),
@@ -46,14 +46,13 @@ export default function LoginForm() {
   async function onSubmit(values: z.infer<typeof loginSchema>) {
     setLoading(true);
     try {
-      const response = await axiosPublic.post(API.login, values);
-      const { accessToken, user } = response.data;
+      const response = await axiosInstance.post(API.login, values);
+      const { user } = response.data;
 
-      localStorage.setItem("accessToken", accessToken);
       dispatch(setUser(user));
 
       toast.success("Login successful!");
-      router.push("/dashboard");
+      router.push("/");
     } catch (error) {
       let errorMessage = "Something went wrong. Please try again.";
       if (axios.isAxiosError(error) && error.response) {

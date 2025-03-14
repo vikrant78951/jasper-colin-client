@@ -1,3 +1,4 @@
+
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -6,13 +7,14 @@ import {
 } from "@/components/ui/navigation-menu";
 import Link from 'next/link'
 import { NavType } from "@lib/definitions";
+import ManageUser from "../forms/manage-user";
 
 export default function Nav({ data }: { data: NavType[] }) {
   return (
     <nav>
       <NavigationMenu>
         <NavigationMenuList>
-          {data?.map((item)=>{
+          {data?.map((item) => {
             return (
               <NavigationMenuItem
                 key={item.id}
@@ -24,6 +26,7 @@ export default function Nav({ data }: { data: NavType[] }) {
               </NavigationMenuItem>
             );
           })}
+        <ManageUser/>
         </NavigationMenuList>
       </NavigationMenu>
     </nav>

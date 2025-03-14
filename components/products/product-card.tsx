@@ -16,7 +16,8 @@ import { toast, type ExternalToast } from "sonner";
 import axios from "axios";
 import { Button } from "@components/ui/button";
 import Link from "next/link";
-
+import { useSelector } from "react-redux";
+import { RootState } from "@redux/store"; 
 
 interface CustomToast extends ExternalToast {
   type?: "success" | "error" | "info" | "warning" | "loading" | "default";
@@ -30,7 +31,7 @@ export default function ProductCard({
 }: {
   product: ProductType;
   onDelete: (id: string)=>void}) {
-  const authentication = true;
+  const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
   const deleteProductHandler = async (id: string) => {
     try {
@@ -76,7 +77,7 @@ export default function ProductCard({
           Price : <span className={"font-semibold"}>{product.price}</span> /.
         </p>
       </CardContent>
-      {authentication && (
+      {isAuthenticated && (
         <CardFooter className={"flex gap-2"}>
           <Button variant={"outline"}>
             <Link href={"/products/edit/" + product._id}>Edit</Link>

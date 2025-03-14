@@ -17,11 +17,7 @@ export const NAV: NavType[] = [
         title: 'Doc',
         url: '/doc',
     },
-    {
-        id: 4,
-        title: 'Login',
-        url: '/auth/login',
-    }
+    
 ];
 
 export const API: { [key: string]: string } = {
@@ -30,4 +26,5 @@ export const API: { [key: string]: string } = {
   register: "/api/auth/register",
   logout: "/api/auth/logout",
   refresh: "/api/auth/refresh",
+  session: "/api/auth/session",
 };
